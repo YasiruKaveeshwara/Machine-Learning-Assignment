@@ -1,0 +1,10 @@
+{
+  "project": "ML-assignment",
+  "random_state": 42,
+  "target_col": "is_canceled",
+  "notebook": "00_setup_data.ipynb",
+  "python_version": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "cwd": "D:\\SLIIT\\Y4S2\\IT4060 - Machine Learning\\Assignment\\repo\\Machine-Learning-Assignment",
+  "git_commit": "f0b446829b7cc22828ff9b1435b8c274fcf841fb"
+}

@@ -1,0 +1,2 @@
+Deduplicated dataset saved to: data\processed\hotel_bookings_dedup.csv
+Rows: 87,396 | Cols: 32
