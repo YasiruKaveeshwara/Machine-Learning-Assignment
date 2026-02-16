@@ -1,0 +1,8 @@
+- Target distribution: report the cancellation rate and whether class balance is skewed.
+- Highest missing-rate columns: list the top columns and propose imputation strategies.
+- Strongest categorical patterns: summarize influential group differences (hotel, deposit type, segment).
+- Numeric distributions: describe skewness/outliers for lead_time and adr; justify clipping/robust preprocessing.
+- Seasonality: summarize changes in cancellation rate across arrival months.
+- Data quality notes: document suspicious values and handling decisions.
+- Preprocessing plan: median imputation for numeric, most_frequent for categorical, one-hot encoding for categoricals.
+- Scaling policy: required for KNN/LogReg; not required for Tree/RF.
