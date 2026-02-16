@@ -1,0 +1,7 @@
+{
+  "output_sparse": false,
+  "scale_numeric": true,
+  "onehot_min_frequency": 0.01,
+  "lower_clip_q": 0.01,
+  "upper_clip_q": 0.99
+}
