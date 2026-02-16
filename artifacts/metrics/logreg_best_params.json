@@ -1,0 +1,6 @@
+{
+  "model__C": 10.0,
+  "model__class_weight": "balanced",
+  "model__solver": "liblinear",
+  "model__max_iter": "2000"
+}
