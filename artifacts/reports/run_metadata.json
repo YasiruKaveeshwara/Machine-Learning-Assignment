@@ -2,9 +2,9 @@
   "project": "ML-assignment",
   "random_state": 42,
   "target_col": "is_canceled",
-  "notebook": "01_eda_dataset_understanding.ipynb",
+  "notebook": "02_preprocessing_pipeline.ipynb",
   "python_version": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
   "platform": "Windows-11-10.0.26200-SP0",
   "cwd": "D:\\SLIIT\\Y4S2\\IT4060 - Machine Learning\\Assignment\\repo\\Machine-Learning-Assignment",
-  "git_commit": "20787a9bd2ff2311ffa72e6a027d38bbc846381f"
+  "git_commit": "04cb6daf4e5cc1d48f4d591a5868252f893cc7bb"
 }

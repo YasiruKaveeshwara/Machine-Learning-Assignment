@@ -1,0 +1,19 @@
+{
+  "X_train_shape_before": [
+    69916,
+    31
+  ],
+  "X_test_shape_before": [
+    17480,
+    31
+  ],
+  "X_train_shape_after": [
+    69916,
+    102
+  ],
+  "X_test_shape_after": [
+    17480,
+    102
+  ],
+  "output_sparse": true
+}
