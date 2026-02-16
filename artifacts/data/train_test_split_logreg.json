@@ -1,0 +1,8 @@
+{
+  "n_rows_total": 87396,
+  "n_train": 69916,
+  "n_test": 17480,
+  "test_size": 0.2,
+  "random_state": 42,
+  "stratified": true
+}
