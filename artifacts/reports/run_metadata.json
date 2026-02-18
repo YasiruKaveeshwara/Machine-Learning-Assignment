@@ -4,9 +4,9 @@
   "test_size": 0.2,
   "cv_splits": 5,
   "target_col": "is_canceled",
-  "notebook": "03_model_logreg.ipynb",
-  "python_version": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
-  "platform": "Windows-11-10.0.26200-SP0",
-  "cwd": "D:\\SLIIT\\Y4S2\\IT4060 - Machine Learning\\Assignment\\repo\\Machine-Learning-Assignment",
-  "git_commit": "0fb08d58a69a1cfc0023376d2011e451efa152ec"
+  "notebook": "05_model_decision_tree.ipynb",
+  "python_version": "3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cwd": "D:\\Documents\\SLIIT_Campus\\Y4S2\\ML_SE40\\ML_assignment\\Machine-Learning-Assignment",
+  "git_commit": "471f90ab2fa10748fe7c4f1f6c5d1300c42fb8d4"
 }
