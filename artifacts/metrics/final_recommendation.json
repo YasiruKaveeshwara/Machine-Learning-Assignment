@@ -1,0 +1,20 @@
+{
+  "status": "ok",
+  "rank_metric": "f1",
+  "best_model_key": "dt",
+  "best_model_name": "Decision Tree",
+  "best_model_source": "pipeline_eval",
+  "best_f1": 0.684160552438498,
+  "supporting_metrics": {
+    "precision": 0.5845132743362832,
+    "recall": 0.8247658688865764,
+    "balanced_accuracy": 0.8012586740882586,
+    "roc_auc": 0.8751447764594328,
+    "pr_auc": 0.7281464072627848,
+    "log_loss": 1.0364687734010156
+  },
+  "notes": [
+    "The selected model has the highest available F1 score under the comparison procedure.",
+    "Probability-based metrics are included only when available from pipeline evaluation or saved metrics."
+  ]
+}
