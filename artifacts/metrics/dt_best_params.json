@@ -1,0 +1,6 @@
+{
+  "model__class_weight": "balanced",
+  "model__max_depth": 20,
+  "model__min_samples_leaf": 10,
+  "model__min_samples_split": 30
+}
