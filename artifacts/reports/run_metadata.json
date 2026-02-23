@@ -2,11 +2,10 @@
   "project": "ML-assignment",
   "random_state": 42,
   "test_size": 0.2,
-  "cv_splits": 5,
   "target_col": "is_canceled",
-  "notebook": "03_model_logreg.ipynb",
-  "python_version": "3.13.1 (tags/v3.13.1:0671451, Dec  3 2024, 19:06:28) [MSC v.1942 64 bit (AMD64)]",
-  "platform": "Windows-11-10.0.26200-SP0",
-  "cwd": "D:\\SLIIT\\Y4S2\\IT4060 - Machine Learning\\Assignment\\repo\\Machine-Learning-Assignment",
-  "git_commit": "0fb08d58a69a1cfc0023376d2011e451efa152ec"
+  "notebook": "07_model_comparison.ipynb",
+  "python_version": "3.11.1 (tags/v3.11.1:a7a450f, Dec  6 2022, 19:58:39) [MSC v.1934 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cwd": "D:\\Documents\\SLIIT_Campus\\Y4S2\\ML_IT4060\\ML_assignment_01\\Machine-Learning-Assignment",
+  "git_commit": "fde3c1a2392a0392412cfb564e66274104c11701"
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "model": "dt",
+    "model_name": "Decision Tree",
+    "source": "pipeline_eval",
+    "f1": 0.684160552438498,
+    "precision": 0.5845132743362832,
+    "recall": 0.8247658688865764,
+    "balanced_accuracy": 0.8012586740882586,
+    "roc_auc": 0.8751447764594328,
+    "pr_auc": 0.7281464072627848,
+    "log_loss": 1.0364687734010156
+  },
+  {
+    "model": "logreg",
+    "model_name": "Logistic Regression",
+    "source": "pipeline_eval",
+    "f1": 0.6685087498953362,
+    "precision": 0.5592602970019613,
+    "recall": 0.8308012486992716,
+    "balanced_accuracy": 0.7912980602470717,
+    "roc_auc": 0.8658408421536573,
+    "pr_auc": 0.6932890410732025,
+    "log_loss": 0.46162506997746555
+  }
+]
