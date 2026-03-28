@@ -207,9 +207,13 @@ Purpose:
 
 Outputs:
 
-- `artifacts/models/random_forest_pipeline.joblib`
-- `artifacts/metrics/random_forest_metrics.json`
-- `artifacts/plots/random_forest_*.png`
+- `artifacts/models/rf_pipeline.joblib`
+- `artifacts/metrics/rf_cv_results.csv`
+- `artifacts/metrics/rf_best_params.json`
+- `artifacts/metrics/rf_test_metrics.json`
+- `artifacts/metrics/rf_feature_importance.csv`
+- `artifacts/plots/rf_*.png`
+- `artifacts/reports/rf_classification_report.txt`
 
 ### 07_model_comparison.ipynb — Final Comparison and Conclusions
 
