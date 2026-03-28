@@ -235,3 +235,21 @@ Outputs:
 - Splitting uses stratification to preserve class balance
 - `RANDOM_STATE` is fixed in `src/config.py`
 - All generated outputs are saved into `artifacts/` and overwritten on each run for consistent comparisons
+
+## Git LFS (pushing large `*.joblib` models)
+
+GitHub rejects single files over **100 MB** unless they use **Git Large File Storage**. This repo’s `.gitattributes` tracks `artifacts/models/*.joblib` with LFS.
+
+1. Install [Git LFS](https://git-lfs.com/) and run once: `git lfs install`
+2. Clone/pull teammates need LFS too: `git lfs install` then `git lfs pull`
+3. If a model was committed **before** LFS was set up, re-add it so Git stores it in LFS:
+
+```powershell
+git lfs install
+git add .gitattributes
+git rm --cached artifacts/models/rf_pipeline.joblib
+git add artifacts/models/rf_pipeline.joblib
+git commit -m "Store RF pipeline with Git LFS"
+```
+
+If history still contains a huge non-LFS blob, run: `git lfs migrate import --include="artifacts/models/*.joblib" --everything` (rewrites history; coordinate with your team).

@@ -1,0 +1,11 @@
+Dataset Link:
+https://www.kaggle.com/datasets/jessemostipak/hotel-booking-demand
+
+Supporting Paper / Context:
+https://pubmed.ncbi.nlm.nih.gov/30581903/
+
+GitHub Repository Link:
+<PASTE_PUBLIC_GITHUB_REPO_URL>
+
+YouTube Presentation Link (<= 20 mins total):
+<PASTE_YOUTUBE_VIDEO_URL>

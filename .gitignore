@@ -71,3 +71,5 @@ htmlcov/
 # =========================
 .env
 .env.*
+
+# Large trained models (*.joblib) are tracked with Git LFS — see .gitattributes and README.
