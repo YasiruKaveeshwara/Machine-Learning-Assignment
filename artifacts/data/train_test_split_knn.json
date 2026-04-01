@@ -1,0 +1,16 @@
+{
+  "model": "knn",
+  "train_size": 69916,
+  "test_size": 17480,
+  "test_ratio": 0.2,
+  "random_state": 42,
+  "stratified": true,
+  "train_class_distribution": {
+    "0": 50696,
+    "1": 19220
+  },
+  "test_class_distribution": {
+    "0": 12675,
+    "1": 4805
+  }
+}
