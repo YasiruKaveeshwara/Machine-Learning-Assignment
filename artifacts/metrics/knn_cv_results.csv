@@ -1,0 +1,21 @@
+params,mean_f1,std_f1,model__metric,model__n_neighbors,model__weights
+"{'model__metric': 'euclidean', 'model__n_neighbors': 3, 'model__weights': 'uniform'}",0.5945907783281955,0.0016108036018086774,euclidean,3,uniform
+"{'model__metric': 'euclidean', 'model__n_neighbors': 3, 'model__weights': 'distance'}",0.5992727385023056,0.00322308008426784,euclidean,3,distance
+"{'model__metric': 'euclidean', 'model__n_neighbors': 5, 'model__weights': 'uniform'}",0.6037920932501335,0.00459824762293062,euclidean,5,uniform
+"{'model__metric': 'euclidean', 'model__n_neighbors': 5, 'model__weights': 'distance'}",0.6105517211492328,0.003604738499313788,euclidean,5,distance
+"{'model__metric': 'euclidean', 'model__n_neighbors': 7, 'model__weights': 'uniform'}",0.6065335861926474,0.004837834647573565,euclidean,7,uniform
+"{'model__metric': 'euclidean', 'model__n_neighbors': 7, 'model__weights': 'distance'}",0.6151887944159166,0.003249625632475737,euclidean,7,distance
+"{'model__metric': 'euclidean', 'model__n_neighbors': 11, 'model__weights': 'uniform'}",0.6068949374352681,0.004718584024342594,euclidean,11,uniform
+"{'model__metric': 'euclidean', 'model__n_neighbors': 11, 'model__weights': 'distance'}",0.6182693226607636,0.0035123468143485265,euclidean,11,distance
+"{'model__metric': 'euclidean', 'model__n_neighbors': 15, 'model__weights': 'uniform'}",0.6049341318715917,0.006478987111077149,euclidean,15,uniform
+"{'model__metric': 'euclidean', 'model__n_neighbors': 15, 'model__weights': 'distance'}",0.6168552137209018,0.004579491909089671,euclidean,15,distance
+"{'model__metric': 'manhattan', 'model__n_neighbors': 3, 'model__weights': 'uniform'}",0.5984990666399502,0.0030984868608866095,manhattan,3,uniform
+"{'model__metric': 'manhattan', 'model__n_neighbors': 3, 'model__weights': 'distance'}",0.6042551846466558,0.0042223658757277885,manhattan,3,distance
+"{'model__metric': 'manhattan', 'model__n_neighbors': 5, 'model__weights': 'uniform'}",0.6068652508865038,0.003955444861192645,manhattan,5,uniform
+"{'model__metric': 'manhattan', 'model__n_neighbors': 5, 'model__weights': 'distance'}",0.6160176694781834,0.0035198872764663123,manhattan,5,distance
+"{'model__metric': 'manhattan', 'model__n_neighbors': 7, 'model__weights': 'uniform'}",0.6141012348329321,0.004201202735123513,manhattan,7,uniform
+"{'model__metric': 'manhattan', 'model__n_neighbors': 7, 'model__weights': 'distance'}",0.6257709749487278,0.0039006746000663515,manhattan,7,distance
+"{'model__metric': 'manhattan', 'model__n_neighbors': 11, 'model__weights': 'uniform'}",0.6155630621968778,0.003789976447768073,manhattan,11,uniform
+"{'model__metric': 'manhattan', 'model__n_neighbors': 11, 'model__weights': 'distance'}",0.6308866276253348,0.00386480591598731,manhattan,11,distance
+"{'model__metric': 'manhattan', 'model__n_neighbors': 15, 'model__weights': 'uniform'}",0.6146712664302673,0.0033350691805381564,manhattan,15,uniform
+"{'model__metric': 'manhattan', 'model__n_neighbors': 15, 'model__weights': 'distance'}",0.6317981564771393,0.00249328603418355,manhattan,15,distance

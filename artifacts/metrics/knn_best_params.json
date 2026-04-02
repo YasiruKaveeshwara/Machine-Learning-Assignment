@@ -1,0 +1,5 @@
+{
+  "model__metric": "manhattan",
+  "model__n_neighbors": 15,
+  "model__weights": "distance"
+}
