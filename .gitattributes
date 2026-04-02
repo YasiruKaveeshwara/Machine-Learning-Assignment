@@ -1,0 +1,2 @@
+# Store sklearn pipelines on Git LFS (GitHub blocks blobs > 100 MB without LFS)
+artifacts/models/*.joblib filter=lfs diff=lfs merge=lfs -text
