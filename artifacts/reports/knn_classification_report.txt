@@ -1,8 +1,8 @@
               precision    recall  f1-score   support
 
-not_canceled     0.8544    0.8895    0.8716     12675
-    canceled     0.6732    0.6002    0.6346      4805
+not_canceled     0.8541    0.8888    0.8711     12675
+    canceled     0.6714    0.5996    0.6335      4805
 
-    accuracy                         0.8100     17480
-   macro avg     0.7638    0.7449    0.7531     17480
-weighted avg     0.8046    0.8100    0.8065     17480
+    accuracy                         0.8093     17480
+   macro avg     0.7628    0.7442    0.7523     17480
+weighted avg     0.8039    0.8093    0.8058     17480

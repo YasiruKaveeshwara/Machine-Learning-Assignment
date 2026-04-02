@@ -24,6 +24,18 @@
     "log_loss": 0.46162506997746555
   },
   {
+    "model": "knn",
+    "model_name": "KNN",
+    "source": "pipeline_eval",
+    "f1": 0.6015260220931556,
+    "precision": 0.6642354124748491,
+    "recall": 0.5496357960457856,
+    "balanced_accuracy": 0.7221551761294016,
+    "roc_auc": 0.8419386035667153,
+    "pr_auc": 0.6930789470141696,
+    "log_loss": 0.47071807681009903
+  },
+  {
     "model": "rf",
     "model_name": "Random Forest",
     "source": "pipeline_eval",
