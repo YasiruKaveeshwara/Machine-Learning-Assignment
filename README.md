@@ -1,253 +1,294 @@
-# Machine Learning Assignment — Hotel Booking Demand (Cancellation Prediction)
+# Machine Learning Assignment — Hotel Booking Cancellation Prediction
 
-## Project Overview
+## 1. Project Summary
 
-This project builds and compares multiple supervised machine learning models to predict whether a hotel booking will be canceled (`is_canceled`).
-The workflow is implemented as a sequence of notebooks supported by reusable Python modules under `src/`.
+This project predicts whether a hotel booking will be canceled (`is_canceled`) using supervised machine learning and a reproducible notebook workflow.
 
-Primary goals:
+The final pipeline includes:
 
-- Maintain a leakage-safe ML pipeline (training-only fitting for preprocessing)
-- Produce report-ready EDA and evaluation outputs
-- Save outputs from every stage into a fixed `artifacts/` structure (overwritten on each run)
-- Enable fair model comparison using consistent splitting and preprocessing policies
+- Data setup and cleaning
+- Exploratory data analysis (EDA)
+- Leakage-safe preprocessing
+- Four models:
+  - Logistic Regression
+  - K-Nearest Neighbors (KNN)
+  - Decision Tree
+  - Random Forest
+- Unified final comparison and recommendation
 
----
+All outputs are written into `artifacts/` and are intentionally overwritten on each run to keep the latest results.
 
-## Repository Structure
+## 2. Repository Layout
 
+```text
+Machine-Learning-Assignment/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── notebooks/
+│   ├── 00_setup_data.ipynb
+│   ├── 01_eda_dataset_understanding.ipynb
+│   ├── 02_preprocessing_pipeline.ipynb
+│   ├── 03_model_logreg.ipynb
+│   ├── 04_model_knn.ipynb
+│   ├── 05_model_decision_tree.ipynb
+│   ├── 06_model_random_forest.ipynb
+│   └── 07_model_comparison.ipynb
+├── src/
+│   ├── config.py
+│   ├── data_loader.py
+│   ├── preprocessing.py
+│   ├── train_eval.py
+│   ├── metrics.py
+│   ├── plots.py
+│   └── io_utils.py
+├── artifacts/
+│   ├── data/
+│   ├── preprocessing/
+│   ├── models/
+│   ├── metrics/
+│   ├── plots/
+│   └── reports/
+├── requirements.txt
+└── README.md
 ```
-ML-assignment/
-	data/
-		raw/
-		processed/
 
-	notebooks/
-		00_setup_data.ipynb
-		01_eda_dataset_understanding.ipynb
-		02_preprocessing_pipeline.ipynb
-		03_model_logreg.ipynb
-		04_model_knn.ipynb
-		05_model_decision_tree.ipynb
-		06_model_random_forest.ipynb
-		07_model_comparison.ipynb
+## 3. Environment Setup
 
-	src/
-		__init__.py
-		config.py
-		data_loader.py
-		preprocessing.py
-		train_eval.py
-		metrics.py
-		plots.py
-		io_utils.py
+### 3.1 Open in VS Code
 
-	artifacts/
-		data/
-		preprocessing/
-		models/
-		metrics/
-		plots/
-		reports/
-```
+Open the repository root folder (the one containing `notebooks/`, `src/`, `data/`, and `artifacts/`).
 
-`artifacts/` contains generated outputs (tables, models, metrics, plots, and report notes).  
-Files in `artifacts/` are overwritten each time a notebook is run.
-
----
-
-## Setup Instructions (VS Code)
-
-### 1) Open the project folder
-
-Open the repository root in VS Code (the folder that contains `src/`, `notebooks/`, and `data/`).
-
-### 2) Create and activate a virtual environment (Windows PowerShell)
+### 3.2 Create and activate virtual environment (Windows PowerShell)
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\activate
 ```
 
-### 3) Install dependencies
-
-`requirements.txt` is already included. Install from it:
+### 3.3 Install dependencies
 
 ```powershell
 pip install -U pip
 pip install -r requirements.txt
 ```
 
-### 4) Select the interpreter in VS Code
+### 3.4 Select Python interpreter in VS Code
 
-Ctrl + Shift + P → Python: Select Interpreter
+- Command Palette: `Python: Select Interpreter`
+- Select `.venv\Scripts\python.exe`
 
-Select: .venv\Scripts\python.exe
-
-### 5) Register the kernel for notebooks
+### 3.5 Register Jupyter kernel
 
 ```powershell
 python -m ipykernel install --user --name ml-assignment-venv --display-name "ML Assignment (.venv)"
 ```
 
-### 6) Dataset placement
+### 3.6 Dataset location
 
-Place the dataset CSV at:
+Place the dataset at:
 
-`data/raw/hotel_bookings.csv`
+- `data/raw/hotel_bookings.csv`
 
-Optional (recommended for consistent teamwork):
+The pipeline will prefer the processed file when available:
 
-Notebook 00_setup_data.ipynb saves a deduplicated dataset to:
+- `data/processed/hotel_bookings_dedup.csv`
 
-`data/processed/hotel_bookings_dedup.csv`
+## 4. End-to-End Notebook Execution Order
 
-## Execution Order (Notebooks)
+Run notebooks in this order:
 
-### 00_setup_data.ipynb — Setup and Data Loading
+1. `00_setup_data.ipynb`
+2. `01_eda_dataset_understanding.ipynb`
+3. `02_preprocessing_pipeline.ipynb`
+4. `03_model_logreg.ipynb`
+5. `04_model_knn.ipynb`
+6. `05_model_decision_tree.ipynb`
+7. `06_model_random_forest.ipynb`
+8. `07_model_comparison.ipynb`
+
+## 5. Notebook Responsibilities and Main Outputs
+
+### 5.1 `00_setup_data.ipynb`
 
 Purpose:
 
-- Load the dataset from `data/raw/`
-- Perform safe cleaning (drop exact duplicates)
-- Save initial summaries and snapshots to `artifacts/data/`
-- Save a deduplicated dataset to `data/processed/` for consistent downstream runs
+- Initial dataset loading and sanity checks
+- Optional de-duplication baseline creation
+- Basic summaries saved for downstream notebooks
 
-Key outputs:
+Typical outputs:
 
 - `artifacts/data/summary.json`
 - `artifacts/data/df_head.csv`
 - `artifacts/data/missing_top20.csv`
 - `artifacts/data/target_distribution.csv`
-- `data/processed/hotel_bookings_dedup.csv` (optional shared baseline)
+- `data/processed/hotel_bookings_dedup.csv`
 
-### 01_eda_dataset_understanding.ipynb — Exploratory Data Analysis
-
-Purpose:
-
-- Validate data quality and missingness patterns
-- Analyze target distribution and cancellation patterns
-- Generate report-ready plots and tables
-
-Key outputs:
-
-- Tables in `artifacts/data/` (missingness, describes, grouped cancellation rates)
-- Figures in `artifacts/plots/` (target distribution, missingness, histograms, grouped rates, correlation heatmap)
-- Notes in `artifacts/reports/eda_insights.md` (report-ready bullet points)
-
-### 02_preprocessing_pipeline.ipynb — Leakage-Safe Preprocessing
+### 5.2 `01_eda_dataset_understanding.ipynb`
 
 Purpose:
 
-- Build reusable preprocessing pipelines
-- Fit preprocessing only on the training split
-- Save preprocessors for use in all model notebooks
+- Understand missing values, distributions, and group-wise cancellation behavior
 
-Two preprocessors are saved:
+Outputs:
 
-- `artifacts/preprocessing/preprocessor_sparse.joblib` (suitable for Logistic Regression and tree-based models)
-- `artifacts/preprocessing/preprocessor_dense.joblib` (recommended for KNN, dense matrix operations)
+- `artifacts/data/target_by_group_*.csv`
+- `artifacts/data/numeric_describe.csv`
+- `artifacts/data/correlation_numeric.csv`
+- EDA plots in `artifacts/plots/`
 
-Key outputs:
+### 5.3 `02_preprocessing_pipeline.ipynb`
+
+Purpose:
+
+- Build leakage-safe preprocessing pipelines
+- Save reusable sparse/dense preprocessors
+
+Outputs:
 
 - `artifacts/preprocessing/preprocessor_sparse.joblib`
 - `artifacts/preprocessing/preprocessor_dense.joblib`
+- `artifacts/preprocessing/preprocess_options_sparse.json`
+- `artifacts/preprocessing/preprocess_options_dense.json`
+- `artifacts/preprocessing/transform_info_sparse.json`
+- `artifacts/preprocessing/transform_info_dense.json`
 - `artifacts/preprocessing/feature_names.csv`
-- `artifacts/data/train_test_split.json` (split policy for reproducibility)
+- `artifacts/data/train_test_split.json`
 
-### 03_model_logreg.ipynb — Logistic Regression Model
+### 5.4 `03_model_logreg.ipynb`
 
 Purpose:
 
-- Train and tune Logistic Regression using the saved preprocessing pipeline
-- Save final model and evaluation metrics
-- Generate evaluation plots (confusion matrix, ROC/PR curves where applicable)
+- Train/tune Logistic Regression and export full evaluation artifacts
 
 Outputs:
 
 - `artifacts/models/logreg_pipeline.joblib`
-- `artifacts/metrics/logreg_metrics.json`
-- `artifacts/plots/logreg_*.png`
+- `artifacts/metrics/logreg_best_params.json`
+- `artifacts/metrics/logreg_cv_results.csv`
+- `artifacts/metrics/logreg_test_metrics.json`
+- `artifacts/metrics/logreg_threshold_metrics.csv`
+- `artifacts/metrics/logreg_coefficients_top.csv`
+- related `logreg_*.png` plots
 
-### 04_model_knn.ipynb — KNN Model
+### 5.5 `04_model_knn.ipynb`
 
 Purpose:
 
-- Train and tune KNN using the dense preprocessor
-- Save final model and evaluation metrics
-- Generate evaluation plots
+- Train/tune KNN using dense preprocessing
+- Evaluate threshold behavior and permutation importance
 
 Outputs:
 
 - `artifacts/models/knn_pipeline.joblib`
-- `artifacts/metrics/knn_metrics.json`
-- `artifacts/plots/knn_*.png`
+- `artifacts/metrics/knn_best_params.json`
+- `artifacts/metrics/knn_cv_results.csv`
+- `artifacts/metrics/knn_test_metrics.json`
+- `artifacts/metrics/knn_threshold_metrics.csv`
+- `artifacts/metrics/knn_feature_importance.csv`
+- related `knn_*.png` plots
 
-### 05_model_decision_tree.ipynb — Decision Tree Model
+### 5.6 `05_model_decision_tree.ipynb`
 
 Purpose:
 
-- Train and tune a Decision Tree model
-- Save final model and evaluation metrics
-- Generate evaluation plots + feature importance (if used)
+- Train/tune Decision Tree and export performance + interpretability artifacts
 
 Outputs:
 
-- `artifacts/models/decision_tree_pipeline.joblib`
-- `artifacts/metrics/decision_tree_metrics.json`
-- `artifacts/plots/decision_tree_*.png`
+- `artifacts/models/dt_pipeline.joblib`
+- `artifacts/metrics/dt_best_params.json`
+- `artifacts/metrics/dt_cv_results.csv`
+- `artifacts/metrics/dt_test_metrics.json`
+- `artifacts/metrics/dt_threshold_metrics.csv`
+- `artifacts/metrics/dt_feature_importance.csv`
+- related `dt_*.png` plots
 
-### 06_model_random_forest.ipynb — Random Forest Model
+### 5.7 `06_model_random_forest.ipynb`
 
 Purpose:
 
-- Train and tune Random Forest
-- Save final model and evaluation metrics
-- Generate evaluation plots + feature importance (if used)
+- Train/tune Random Forest and export evaluation artifacts
 
 Outputs:
 
 - `artifacts/models/rf_pipeline.joblib`
-- `artifacts/metrics/rf_cv_results.csv`, `rf_best_params.json`, `rf_test_metrics.json`
+- `artifacts/metrics/rf_best_params.json`
+- `artifacts/metrics/rf_cv_results.csv`
+- `artifacts/metrics/rf_test_metrics.json`
+- `artifacts/metrics/rf_threshold_metrics.csv`
 - `artifacts/metrics/rf_feature_importance.csv`
-- `artifacts/plots/rf_*.png`
-- `artifacts/reports/rf_classification_report.txt`
+- `artifacts/metrics/rf_confusion_matrix.csv`
+- related `rf_*.png` plots
 
-### 07_model_comparison.ipynb — Final Comparison and Conclusions
+### 5.8 `07_model_comparison.ipynb`
 
 Purpose:
 
-- Load metrics from all trained models
-- Build a comparison table (accuracy, precision, recall, F1, ROC-AUC, etc.)
-- Provide final conclusions and a justified model choice
+- Evaluate all available models on a consistent split when pipelines are available
+- Generate final ranking and recommendation
+- Save report-ready comparison plots and notes
 
 Outputs:
 
 - `artifacts/metrics/model_comparison.csv`
-- `artifacts/reports/final_summary.md`
-- `artifacts/plots/comparison_*.png` (optional)
+- `artifacts/metrics/model_ranking.json`
+- `artifacts/metrics/final_recommendation.json`
+- `artifacts/reports/model_comparison_notes.md`
+- `artifacts/reports/missing_artifacts_report.md`
+- `artifacts/plots/compare_f1_bar.png`
+- `artifacts/plots/compare_precision_recall_bar.png`
+- `artifacts/plots/compare_balanced_accuracy_bar.png`
+- `artifacts/plots/compare_roc_overlay.png` (if probabilities available)
+- `artifacts/plots/compare_pr_overlay.png` (if probabilities available)
 
-## Notes on Reproducibility and Fair Comparison
+## 6. Reproducibility and Fairness Rules
 
-- Preprocessing is fitted on training data only (leakage-safe)
-- Splitting uses stratification to preserve class balance
-- `RANDOM_STATE` is fixed in `src/config.py`
-- All generated outputs are saved into `artifacts/` and overwritten on each run for consistent comparisons
+- Splits are stratified for class balance.
+- Random seeds are fixed via `src/config.py`.
+- Preprocessing is fitted on training data only.
+- Comparison notebook uses one deterministic split for fair model evaluation when pipelines are loadable.
+- Artifacts are overwritten each run to avoid stale result confusion.
 
-## Git LFS (pushing large `*.joblib` models)
+## 7. Common Troubleshooting
 
-GitHub rejects single files over **100 MB** unless they use **Git Large File Storage**. This repo’s `.gitattributes` tracks `artifacts/models/*.joblib` with LFS.
+### 7.1 `ModuleNotFoundError: src`
 
-1. Install [Git LFS](https://git-lfs.com/) and run once: `git lfs install`
-2. Clone/pull teammates need LFS too: `git lfs install` then `git lfs pull`
-3. If a model was committed **before** LFS was set up, re-add it so Git stores it in LFS:
+- Open the repository root in VS Code, then rerun from top cells.
+- Notebook bootstrap cells auto-detect the repo root.
+
+### 7.2 `IProgress not found` with `tqdm`
+
+- Current notebooks use `tqdm.auto`, which avoids hard dependency on notebook widgets.
+- If needed: `pip install ipywidgets`.
+
+### 7.3 Pipeline loading errors (scikit-learn version mismatch)
+
+- If a saved `*.joblib` fails to predict after load, rerun the relevant model notebook to regenerate artifacts in the current environment.
+
+## 8. Team Contributions (Declaration)
+
+| Member   | Contributions                                                                    |
+| -------- | -------------------------------------------------------------------------------- |
+| Yasiru   | Setup, EDA, preprocessing pipeline, Logistic Regression, model comparison script |
+| Member 2 | KNN implementation, video editing                                                |
+| Dilhara  | Decision Tree implementation, report formatting                                  |
+| Member 4 | Random Forest implementation, GitHub repository management                       |
+
+## 9. Git LFS for Large Model Files
+
+Model files may exceed GitHub's regular file-size threshold. Use Git LFS for `artifacts/models/*.joblib`.
 
 ```powershell
 git lfs install
 git add .gitattributes
-git rm --cached artifacts/models/rf_pipeline.joblib
-git add artifacts/models/rf_pipeline.joblib
-git commit -m "Store RF pipeline with Git LFS"
+git add artifacts/models/*.joblib
+git commit -m "Track model artifacts with Git LFS"
 ```
 
-If history still contains a huge non-LFS blob, run: `git lfs migrate import --include="artifacts/models/*.joblib" --everything` (rewrites history; coordinate with your team).
+If large binaries were committed before LFS tracking, coordinate with the team before history rewrite:
+
+```powershell
+git lfs migrate import --include="artifacts/models/*.joblib" --everything
+```
