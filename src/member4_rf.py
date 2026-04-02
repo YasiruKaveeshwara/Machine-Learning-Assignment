@@ -61,7 +61,7 @@ def _to_native_float_dict(d: dict) -> dict:
 def run_member4_random_forest(
     data_path: str = DEFAULT_DATA_PATH,
     scoring: str = "f1",
-    max_tune_rows: int = 40000,
+    max_tune_rows: int = 15000,
 ) -> dict:
     dirs = ensure_artifact_dirs("artifacts")
     started_at = datetime.utcnow().isoformat() + "Z"
@@ -131,7 +131,9 @@ def run_member4_random_forest(
     test_metrics = _to_native_float_dict(test_metrics)
 
     save_model(best_model, dirs["models"] / "rf_pipeline.joblib")
-    save_dataframe(pd.DataFrame(search.cv_results_), dirs["metrics"] / "rf_cv_results.csv")
+    save_dataframe(
+        pd.DataFrame(search.cv_results_), dirs["metrics"] / "rf_cv_results.csv"
+    )
     save_json(search.best_params_, dirs["metrics"] / "rf_best_params.json")
     save_json(test_metrics, dirs["metrics"] / "rf_test_metrics.json")
     save_dataframe(
@@ -182,7 +184,11 @@ def run_member4_random_forest(
     if hasattr(model, "feature_importances_"):
         fi = pd.DataFrame(
             {
-                "feature": feature_names if feature_names else [f"f{i}" for i in range(len(model.feature_importances_))],
+                "feature": (
+                    feature_names
+                    if feature_names
+                    else [f"f{i}" for i in range(len(model.feature_importances_))]
+                ),
                 "importance": model.feature_importances_,
             }
         ).sort_values("importance", ascending=False)
@@ -237,4 +243,3 @@ def run_member4_random_forest(
 if __name__ == "__main__":
     results = run_member4_random_forest()
     print(json.dumps(results, indent=2))
-
