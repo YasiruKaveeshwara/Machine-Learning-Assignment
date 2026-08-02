@@ -1,4 +1,4 @@
-# Machine Learning Assignment — Hotel Booking Cancellation Prediction
+#  Hotel Booking Cancellation Prediction - Machine Learning
 
 ## 1. Project Summary
 
