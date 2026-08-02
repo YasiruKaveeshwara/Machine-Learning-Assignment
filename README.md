@@ -267,15 +267,6 @@ Outputs:
 
 - If a saved `*.joblib` fails to predict after load, rerun the relevant model notebook to regenerate artifacts in the current environment.
 
-## 8. Team Contributions (Declaration)
-
-| Member   | Contributions                                                                    |
-| -------- | -------------------------------------------------------------------------------- |
-| Yasiru   | Setup, EDA, preprocessing pipeline, Logistic Regression, model comparison script |
-| Member 2 | KNN implementation, video editing                                                |
-| Dilhara  | Decision Tree implementation, report formatting                                  |
-| Member 4 | Random Forest implementation, GitHub repository management                       |
-
 ## 9. Git LFS for Large Model Files
 
 Model files may exceed GitHub's regular file-size threshold. Use Git LFS for `artifacts/models/*.joblib`.
